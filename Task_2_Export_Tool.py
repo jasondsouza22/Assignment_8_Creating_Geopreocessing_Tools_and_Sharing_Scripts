@@ -20,9 +20,8 @@ if output_type == "KMZ":
     arcpy.AddMessage("Exported successfully to KMZ")
 
 elif output_type == "CAD":
-    output_dwg_file = "{}.dwg".format(file_name)
-    full_output_dwg_path = os.path.join(output_folder, output_dwg_file)
-    arcpy.TableToCAD_conversion("fc_layer", full_output_dwg_path, "DWG_R2013")
-    arcpy.AddMessage("Exported successfully to DWG")
-
+    output_CAD_file = "{}.dwg".format(file_name)
+    full_output_CAD_path = os.path.join(output_folder,output_CAD_file)
+    arcpy.conversion.ExportCAD(input_fc, "DWG_R2018", full_output_CAD_path)
+    arcpy.AddMessage("Exported successfully to CAD")
 arcpy.AddMessage("Process completed")
